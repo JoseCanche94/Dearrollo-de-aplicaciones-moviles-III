@@ -1,0 +1,16 @@
+print("Ingresa un número entero:")
+
+func verificarParidad(numero: Int) {
+    if numero % 2 == 0 {
+        print("\(numero) es un número par.")
+    } else {
+        print("\(numero) es un número impar.")
+    }
+}
+
+if let entrada = readLine(), let numero = Int(entrada) {
+    verificarParidad(numero: numero)
+} else {
+    print("Por favor, ingresa un número válido.")
+}
+
