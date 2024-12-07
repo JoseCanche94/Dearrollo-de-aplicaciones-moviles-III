@@ -1,0 +1,95 @@
+class Figura{
+  func calcularArea() -> Double {
+    return 0.0
+  }
+}
+
+class Cuadrado: Figura{
+  var lado: Double
+  init(lado: Double){
+    self.lado = lado
+  }
+  override func calcularArea() -> Double{
+    return lado * lado
+  }
+}
+
+class Rectangulo: Figura{
+  var alto: Double
+  var largo: Double
+
+  init(alto: Double, largo: Double){
+    self.alto = alto
+    self.largo = largo
+  }
+  override func calcularArea() -> Double{
+    return alto * largo
+  }
+}
+
+class Triangulo: Figura{
+  var base: Double
+  var altura: Double
+
+  init(base: Double, altura: Double){
+    self.base = base
+    self.altura = altura
+  }
+  override func calcularArea() -> Double{
+    return (base * altura) / 2
+  }
+}
+
+class Circulo: Figura{
+  var radio: Double
+  let pi = 3.1416
+  init(radio: Double){
+    self.radio = radio
+  }
+  override func calcularArea() -> Double {
+    return pi * radio * radio
+  }
+}
+
+var opcion: Int = 0
+var bandera  = true 
+repeat{
+  print("menu de opciones")
+  print("1- Cuadrado")
+  print("2- Rectangulo")
+  print("3- Triangulo")
+  print("4- Circulo")
+  print("5- Salir")
+  let opcion = Int(readLine()!)!
+  switch opcion{
+    case 1:
+    print("Ingresa del lado del cuadrado")
+    let xlado = Double(readLine()!)!
+    let clculadorDeArea = Cuadrado(lado: xlado)
+    print("El area del cuadrado es: \(clculadorDeArea.calcularArea())")
+    case 2:
+    print("Ingresa el alto del rectangulo")
+    let xalto = Double(readLine()!)!
+    print("Ingresa la base del rectangulo")
+    let xlargo = Double(readLine()!)!
+    let calculadorDeArea = Rectangulo(alto: xalto, largo: xlargo)
+    print("El area del rectangulo es: \(calculadorDeArea.calcularArea())")
+    case 3:
+    print("Ingresa la base del triangulo")
+    let xbase = Double(readLine()!)!
+    print("Ingresa la altura del triangulo")
+    let xaltura = Double(readLine()!)!
+    let calculadorDeArea = Triangulo(base: xbase, altura: xaltura)
+    print("El area del triangulo es: \(calculadorDeArea.calcularArea())")
+    case 4:
+    print("Ingresa el radio del circulo")
+    let xradio = Double(readLine()!)!
+    let calculadorDeArea = Circulo(radio: xradio)
+    print("El area del circulo es: \(calculadorDeArea.calcularArea())")
+    case 5:
+    print("Saliendo del programa")
+    bandera = false
+    default:
+    print("Opcion no valida")
+  }
+}while bandera == true
